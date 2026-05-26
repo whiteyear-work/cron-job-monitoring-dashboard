@@ -2,22 +2,39 @@ import mongoose from "mongoose";
 
 const cronJobSchema = new mongoose.Schema(
   {
-    cronJobId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "CronJob",
+    name: {
+      type: String,
       required: true,
     },
+
+    command: {
+      type: String,
+      required: true,
+    },
+
+    scheduleExpression: {
+      type: String,
+      required: true,
+    },
+
     status: {
       type: String,
-      enum: ["running", "success", "failed"],
-      required: true,
+      enum: ["active", "paused"],
+      default: "active",
     },
-    startedAt: Date,
-    finishedAt: Date,
-    durationMs: Number,
-    errorMessage: String,
+
+    lastRunAt: {
+      type: Date,
+      default: null,
+    },
+
+    nextRunAt: {
+      type: Date,
+      default: null,
+    },
   },
   { timestamps: true },
 );
+cronJobSchema.index({ status: 1 });
 
 export default mongoose.model("CronJob", cronJobSchema);

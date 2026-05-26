@@ -3,9 +3,10 @@
     "target": "ES2020",
     "module": "Node16",
     "moduleResolution": "node16",
+    "types": ["node"],
     "esModuleInterop": true,
     "strict": true,
-    "rootDir": "src/models",
+    "rootDir": "src",
     "skipLibCheck": true,
     "outDir": "dist"
   },
