@@ -16,10 +16,10 @@ const seed = async () => {
     console.log("MongoDB connected");
 
     // clear old data
-    await CronJob.deleteMany({});
-    await CronRun.deleteMany({});
-    await QueueJob.deleteMany({});
-    await Alert.deleteMany({});
+    // await CronJob.deleteMany({});
+    // await CronRun.deleteMany({});
+    // await QueueJob.deleteMany({});
+    // await Alert.deleteMany({});
 
     // create cron jobs
     const cronJob1 = await CronJob.create({
