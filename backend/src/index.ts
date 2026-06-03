@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import connectDB from "./config/db";
+import dashboardRoutes from "./routes/dashboardRoute";
 
 dotenv.config();
 
@@ -21,6 +22,8 @@ app.get("/api/health", async (req, res) => {
     message: "Cron Job Monitoring API running",
   });
 });
+
+app.use("/api/dashboard", dashboardRoutes);
 
 // connect mongo then start server
 connectDB().then(() => {
