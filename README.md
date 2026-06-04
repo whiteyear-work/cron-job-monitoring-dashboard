@@ -4,7 +4,7 @@
 A dashboard to monitor cron executions, queue status, failures, retries, and alerts.
 
 ## Tech:
-Node.js, Next.js, TypeScript, MySQL.
+Node.js, Next.js, TypeScript, MongoDB.
 
 ## Versioning:
 

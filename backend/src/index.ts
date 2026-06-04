@@ -13,8 +13,6 @@ app.use(cors());
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 4000;
-
 // health check
 app.get("/api/health", async (req, res) => {
   return res.json({
@@ -23,7 +21,10 @@ app.get("/api/health", async (req, res) => {
   });
 });
 
+//dashboard api stats
 app.use("/api/dashboard", dashboardRoutes);
+
+const PORT = process.env.PORT || 4000;
 
 // connect mongo then start server
 connectDB().then(() => {
