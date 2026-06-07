@@ -35,6 +35,7 @@ const cronJobSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-cronJobSchema.index({ status: 1 });
+cronJobSchema.index({ status: 1, createdAt: -1 });
+cronJobSchema.index({createdAt: -1 });
 
 export default mongoose.model("CronJob", cronJobSchema);

@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import connectDB from "./config/db";
 import dashboardRoutes from "./routes/dashboardRoute";
+import cronJobRoutes from "./routes/cronJobRoute";
 
 dotenv.config();
 
@@ -23,6 +24,9 @@ app.get("/api/health", async (req, res) => {
 
 //dashboard api stats
 app.use("/api/dashboard", dashboardRoutes);
+
+//cron job data
+app.use("/api/cron-job", cronJobRoutes);
 
 const PORT = process.env.PORT || 4000;
 
